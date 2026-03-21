@@ -148,4 +148,4 @@ end
 
 ## License
 
-MIT. A [Moviendome](https://moviendo.me) project.
+MIT. A [moviendo.me](https://moviendo.me) project.

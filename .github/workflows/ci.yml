@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout sibling gems
+        run: |
+          git clone --depth 1 https://github.com/solrengine/auth.git ../solrengine-auth
+          git clone --depth 1 https://github.com/solrengine/rpc.git ../solrengine-rpc
+          git clone --depth 1 https://github.com/solrengine/tokens.git ../solrengine-tokens
+          git clone --depth 1 https://github.com/solrengine/transactions.git ../solrengine-transactions
+          git clone --depth 1 https://github.com/solrengine/realtime.git ../solrengine-realtime
+          git clone --depth 1 https://github.com/solrengine/programs.git ../solrengine-programs
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: RuboCop
+        run: bundle exec rubocop

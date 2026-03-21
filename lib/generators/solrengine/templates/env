@@ -1,0 +1,11 @@
+# Solana Network (mainnet, devnet, testnet)
+SOLANA_NETWORK=devnet
+
+# RPC URLs (get free keys at helius.dev)
+# SOLANA_RPC_URL=https://mainnet.helius-rpc.com/?api-key=YOUR_KEY
+# SOLANA_WS_URL=wss://mainnet.helius-rpc.com/?api-key=YOUR_KEY
+# SOLANA_RPC_DEVNET_URL=https://devnet.helius-rpc.com/?api-key=YOUR_KEY
+# SOLANA_WS_DEVNET_URL=wss://devnet.helius-rpc.com/?api-key=YOUR_KEY
+
+# SIWS domain (your production domain)
+# APP_DOMAIN=myapp.com

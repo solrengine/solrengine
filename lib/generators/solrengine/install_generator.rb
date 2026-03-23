@@ -3,7 +3,9 @@ class Solrengine::InstallGenerator < Rails::Generators::Base
 
   def run_sub_generators
     generate "solrengine:auth:install"
+    sleep 1 # Ensure unique migration timestamps
     generate "solrengine:tokens:install"
+    sleep 1
     generate "solrengine:transactions:install"
   end
 

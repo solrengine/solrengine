@@ -26,7 +26,7 @@ gem "dotenv-rails", group: [:development, :test]
 bundle install
 rails generate solrengine:install
 rails db:prepare
-yarn add @solana/kit @wallet-standard/app @solana/wallet-standard-features @rails/actioncable
+yarn add @solrengine/wallet-utils @solana/kit @wallet-standard/app @solana/wallet-standard-features @rails/actioncable
 ```
 
 ### 4. Start
@@ -44,7 +44,7 @@ Visit `localhost:3000/auth/login` — connect your wallet and sign in.
 - Creates `Transfer` model with confirmation tracking
 - Sets up multi-database SQLite (primary, cache, queue, cable)
 - Configures Solid Queue, Solid Cache, and Solid Cable for development
-- Installs Stimulus wallet controller (Wallet Standard discovery)
+- Registers wallet controller from [@solrengine/wallet-utils](https://github.com/solrengine/wallet-utils)
 - Adds Tailwind sources for gem views
 - Creates `.env` template, `bin/solana_monitor`, and Procfile entries
 - Mounts auth engine at `/auth` (login, nonce, verify, logout)

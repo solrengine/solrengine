@@ -85,31 +85,22 @@ class Solrengine::InstallGenerator < Rails::Generators::Base
   end
 
   def install_stimulus_controllers
-    # Copy wallet controller from gem into the app
-    auth_gem_path = %w[solrengine-auth].filter_map { |n|
-      spec = Gem.loaded_specs[n] || Bundler.load.specs.find { |s| s.name == n }
-      spec&.full_gem_path
-    }.first
-
-    if auth_gem_path
-      wallet_src = File.join(auth_gem_path, "app/assets/javascripts/solrengine/auth/wallet_controller.js")
-      if File.exist?(wallet_src)
-        copy_file wallet_src, "app/javascript/controllers/wallet_controller.js"
-      end
-    end
-
-    # Register in index.js
+    # Register shared controllers from @solrengine/wallet-utils
     index_js = "app/javascript/controllers/index.js"
     if File.exist?(index_js)
       content = File.read(index_js)
       unless content.include?("WalletController")
         append_to_file index_js, <<~JS
 
-          import WalletController from "./wallet_controller"
+          import { WalletController } from "@solrengine/wallet-utils/controllers"
           application.register("wallet", WalletController)
         JS
       end
     end
+
+    # Remove local wallet_controller.js if it exists (now in npm package)
+    local_wallet = "app/javascript/controllers/wallet_controller.js"
+    remove_file local_wallet if File.exist?(local_wallet)
   end
 
   def fix_stylesheet_link
@@ -137,7 +128,7 @@ class Solrengine::InstallGenerator < Rails::Generators::Base
     say ""
     say "  Next steps:"
     say "    1. rails db:prepare"
-    say "    2. yarn add @solana/kit @wallet-standard/app @solana/wallet-standard-features @rails/actioncable"
+    say "    2. yarn add @solrengine/wallet-utils @solana/kit @wallet-standard/app @solana/wallet-standard-features @rails/actioncable"
     say "    3. Configure .env with your RPC URLs"
     say "    4. bin/dev"
     say "    5. Visit /auth/login"

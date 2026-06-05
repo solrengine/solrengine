@@ -58,11 +58,13 @@ class Solrengine::InstallGenerator < Rails::Generators::Base
 
   def setup_cache_yml
     cache_yml = "config/cache.yml"
-    if File.exist?(cache_yml)
-      content = File.read(cache_yml)
-      unless content.include?("database: cache")
-        gsub_file cache_yml, "development:\n  <<: *default", "development:\n  database: cache\n  <<: *default"
-      end
+    return unless File.exist?(cache_yml)
+
+    %w[development test].each do |env|
+      next if File.read(cache_yml).include?("#{env}:\n  database: cache")
+      gsub_file cache_yml,
+        "#{env}:\n  <<: *default",
+        "#{env}:\n  database: cache\n  <<: *default"
     end
   end
 

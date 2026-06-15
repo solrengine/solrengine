@@ -59,8 +59,16 @@ Visit `localhost:3000/auth/login` — connect your wallet and sign in.
 | [**solrengine-transactions**](https://github.com/solrengine/transactions) | SOL transfers with @solana/kit, confirmation tracking |
 | [**solrengine-realtime**](https://github.com/solrengine/realtime) | WebSocket account monitoring, Turbo Streams push updates |
 | [**solrengine-programs**](https://github.com/solrengine/programs) | Anchor IDL parsing, Borsh serialization, program account models, instruction builders |
+| [**solana-sdp**](https://github.com/solrengine/solana-sdp) | Custodial path — plain-Ruby client for the Solana Developer Platform wallets + payments API |
+| [**solrengine-sdp**](https://github.com/solrengine/solrengine-sdp) | Custodial path — Rails engine: Wallet-per-User provisioning, tracked transfers, live balances |
 
 Each gem can be used independently or together via the `solrengine` meta-gem.
+
+### Two custody models
+
+The first six gems cover the **connect-your-wallet** path: your users bring their own wallets and keep their own keys. The two SDP gems cover the **Wallet-per-User** path: users sign up with an email and your app provisions a custody wallet for each of them through the [Solana Developer Platform](https://github.com/solana-foundation/solana-developer-platform) (SDP). Both are first-class, and they mix in one app.
+
+The SDP gems are not installed by this meta-gem — the custodial path is opt-in (`gem "solrengine-sdp"`), and it has real prerequisites: a running SDP instance, a managed custody provider (e.g. Privy), and Kora as SDP's fee-payment provider. SDP is pre-mainnet and devnet-oriented. See [solrengine.org/docs/sdp](https://solrengine.org/docs/sdp).
 
 ## Custom Program Interaction
 

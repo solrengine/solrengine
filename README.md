@@ -60,7 +60,7 @@ Visit `localhost:3000/auth/login` — connect your wallet and sign in.
 | [**solrengine-realtime**](https://github.com/solrengine/realtime) | WebSocket account monitoring, Turbo Streams push updates |
 | [**solrengine-programs**](https://github.com/solrengine/programs) | Anchor IDL parsing, Borsh serialization, program account models, instruction builders |
 | [**solana-sdp**](https://github.com/solrengine/solana-sdp) | Custodial path — plain-Ruby client for the Solana Developer Platform wallets + payments API |
-| [**solrengine-sdp**](https://github.com/solrengine/solrengine-sdp) | Custodial path — Rails engine: Wallet-per-User provisioning, tracked transfers, live balances |
+| [**solrengine-sdp**](https://github.com/solrengine/sdp) | Custodial path — Rails engine: Wallet-per-User provisioning, tracked transfers, live balances |
 
 Each gem can be used independently or together via the `solrengine` meta-gem.
 

@@ -68,7 +68,7 @@ Each gem can be used independently or together via the `solrengine` meta-gem.
 
 The first six gems cover the **connect-your-wallet** path: your users bring their own wallets and keep their own keys. The two SDP gems cover the **Wallet-per-User** path: users sign up with an email and your app provisions a custody wallet for each of them through the [Solana Developer Platform](https://github.com/solana-foundation/solana-developer-platform) (SDP). Both are first-class, and they mix in one app.
 
-The SDP gems are not installed by this meta-gem — the custodial path is opt-in (`gem "solrengine-sdp"`), and it has real prerequisites: a running SDP instance, a managed custody provider (e.g. Privy), and Kora as SDP's fee-payment provider. SDP is pre-mainnet and devnet-oriented. See [solrengine.org/docs/sdp](https://solrengine.org/docs/sdp).
+The SDP gems are not installed by this meta-gem — the custodial path is opt-in (`gem "solrengine-sdp"`), and it has real prerequisites: a running SDP instance, a managed custody provider (e.g. Privy), and Kora as SDP's fee-payment provider. SDP is pre-mainnet and devnet-oriented. See [solrengine.org/docs/sdp](https://solrengine.org/docs/sdp), and the [self-hosting guide](https://solrengine.org/docs/sdp/self-hosting) for running your own SDP instance.
 
 ## Custom Program Interaction
 

@@ -20,8 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "solrengine-auth", "~> 0.2"
   spec.add_dependency "solrengine-rpc", "~> 0.1"
-  spec.add_dependency "solrengine-tokens", "~> 0.1"
+  spec.add_dependency "solrengine-tokens", "~> 0.2"
   spec.add_dependency "solrengine-transactions", "~> 0.1"
-  spec.add_dependency "solrengine-realtime", "~> 0.1"
+  spec.add_dependency "solrengine-realtime", "~> 0.2"
   spec.add_dependency "solrengine-programs", "~> 0.2"
 end
